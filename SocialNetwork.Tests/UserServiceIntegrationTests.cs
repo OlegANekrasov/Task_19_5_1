@@ -31,7 +31,7 @@ namespace SocialNetwork.Tests
         public void AuthenticateMustThrowUserNotFoundException()
         {
             var mock = new Mock<IUserRepository>();
-            mock.Setup(p => p.FindByEmail("Oleg@mail.ru")).Throws(new UserNotFoundException());
+            mock.Setup(p => p.FindByEmail("Oleg@mail.ru")).Returns((UserEntity)null);
 
             var userService = new UserService(mock.Object);
 
